@@ -29,7 +29,7 @@ export function getSocket(): WebSocket {
 
 export function subscribe(fn: (msg: WsMessage) => void) {
   listeners.add(fn);
-  return () => listeners.delete(fn);
+  return () => { listeners.delete(fn); };
 }
 
 export function initSocket() {
