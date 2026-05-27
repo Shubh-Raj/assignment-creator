@@ -18,104 +18,106 @@ const recentActivity = [
 
 export default function HomePage() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: '24px', padding: '24px' }}>
       <TopBar title="Home" />
 
-      <div style={{ flex: 1, overflowY: 'auto', minHeight: 0 }}>
+      <div style={{ flex: 1, overflowY: 'auto', minHeight: 0, display: 'flex', flexDirection: 'column', gap: '32px' }}>
         {/* Welcome banner */}
         <div style={{
-          background: '#18181b',
-          borderRadius: '20px',
-          padding: '28px 32px',
-          marginBottom: '20px',
+          background: 'linear-gradient(135deg, #18181b 0%, #27272a 100%)',
+          borderRadius: '24px',
+          padding: '40px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
         }}>
           <div>
-            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', color: '#9ca3af', marginBottom: '6px' }}>
-              Welcome back,
+            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', color: '#a1a1aa', marginBottom: '8px' }}>
+              Welcome back to your dashboard
             </p>
-            <h1 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '24px', color: '#ffffff', margin: '0 0 8px' }}>
+            <h1 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: '32px', color: '#ffffff', margin: '0 0 12px' }}>
               John Doe 👋
             </h1>
-            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', color: '#6b7280', margin: 0 }}>
+            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px', color: '#71717a', margin: 0 }}>
               Delhi Public School, Bokaro Steel City
             </p>
           </div>
           <Link
             href="/create"
             style={{
-              display: 'flex', alignItems: 'center', gap: '8px',
-              padding: '12px 22px',
+              display: 'flex', alignItems: 'center', gap: '12px',
+              padding: '16px 28px',
               background: '#ffffff',
-              borderRadius: '999px',
+              borderRadius: '12px',
               textDecoration: 'none',
               fontFamily: 'Inter, sans-serif',
-              fontWeight: 700,
-              fontSize: '14px',
-              color: '#111827',
+              fontWeight: 600,
+              fontSize: '15px',
+              color: '#09090b',
               whiteSpace: 'nowrap',
+              transition: 'transform 0.2s, background 0.2s',
             }}
           >
-            <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
             </svg>
-            New Assignment
+            Create New Assignment
           </Link>
         </div>
 
-        {/* Quick actions */}
-        <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '15px', color: '#374151', marginBottom: '14px' }}>
-          Quick Actions
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
-          {quickActions.map((a) => (
-            <Link
-              key={a.label}
-              href={a.href}
-              style={{
-                background: '#ffffff',
-                borderRadius: '16px',
-                padding: '20px',
-                textDecoration: 'none',
-                border: '1px solid #f1f5f9',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
-                display: 'flex', flexDirection: 'column', gap: '8px',
-                transition: 'transform 0.1s',
-              }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = 'none'; (e.currentTarget as HTMLElement).style.boxShadow = '0 1px 3px rgba(0,0,0,0.04)'; }}
-            >
-              <span style={{ fontSize: '24px' }}>{a.icon}</span>
-              <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '14px', color: '#111827' }}>{a.label}</span>
-              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '12.5px', color: '#6b7280' }}>{a.desc}</span>
-            </Link>
-          ))}
-        </div>
+        {/* Quick actions grid */}
+        <section>
+          <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '18px', color: '#18181b', marginBottom: '20px' }}>
+            Quick Actions
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
+            {quickActions.map((a) => (
+              <Link
+                key={a.label}
+                href={a.href}
+                style={{
+                  background: '#ffffff',
+                  borderRadius: '20px',
+                  padding: '24px',
+                  textDecoration: 'none',
+                  border: '1px solid #e4e4e7',
+                  display: 'flex', flexDirection: 'column', gap: '12px',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                <div style={{ fontSize: '32px' }}>{a.icon}</div>
+                <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '16px', color: '#09090b', margin: 0 }}>{a.label}</h3>
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', color: '#71717a', margin: 0 }}>{a.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-        {/* Recent activity */}
-        <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '15px', color: '#374151', marginBottom: '14px' }}>
-          Recent Activity
-        </h2>
-        <div style={{ background: '#ffffff', borderRadius: '16px', border: '1px solid #f1f5f9', overflow: 'hidden' }}>
-          {recentActivity.map((item, i) => (
-            <div
-              key={item.label}
-              style={{
-                padding: '16px 20px',
-                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                borderBottom: i < recentActivity.length - 1 ? '1px solid #f9fafb' : 'none',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ade80', flexShrink: 0 }}/>
-                <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '14px', color: '#111827' }}>{item.label}</span>
+        {/* Recent activity list */}
+        <section>
+          <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '18px', color: '#18181b', marginBottom: '20px' }}>
+            Recent Activity
+          </h2>
+          <div style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e4e4e7', overflow: 'hidden' }}>
+            {recentActivity.map((item, i) => (
+              <div
+                key={item.label}
+                style={{
+                  padding: '20px 24px',
+                  display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                  borderBottom: i < recentActivity.length - 1 ? '1px solid #f4f4f5' : 'none',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e' }}/>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500, fontSize: '15px', color: '#09090b' }}>{item.label}</span>
+                </div>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', color: '#a1a1aa' }}>{item.time}</span>
               </div>
-              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '12.5px', color: '#9ca3af' }}>{item.time}</span>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
