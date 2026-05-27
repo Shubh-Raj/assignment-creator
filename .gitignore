@@ -25,6 +25,7 @@ backend/uploads/
 # Documentation / review files (as per instruction.md)
 *.md
 *.txt
+!README.md
 
 # IDE
 .vscode/
