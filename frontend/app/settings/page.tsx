@@ -6,8 +6,8 @@ const sections = [
   {
     title: 'Account',
     items: [
-      { label: 'Display Name', value: 'John Doe', type: 'text' },
-      { label: 'Email', value: 'john.doe@dps.edu', type: 'text' },
+      { label: 'Display Name', value: 'Shubh', type: 'text' },
+      { label: 'Email', value: 'shubh@dps.edu', type: 'text' },
       { label: 'School', value: 'Delhi Public School, Bokaro Steel City', type: 'text' },
     ],
   },

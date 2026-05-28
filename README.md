@@ -244,3 +244,32 @@ npm run dev
 *The frontend will start on `http://localhost:3000`.*
 
 Navigate to `http://localhost:3000` in your browser to start creating assignments.
+
+---
+
+## Live Deployment
+
+The project is deployed and publicly accessible at the following URLs:
+
+| Service  | Platform | URL                                                                 |
+|----------|----------|---------------------------------------------------------------------|
+| Frontend | Vercel   | [https://assignment-creator-phi.vercel.app](https://assignment-creator-phi.vercel.app) |
+| Backend  | Render   | [https://assignment-creator-s96e.onrender.com](https://assignment-creator-s96e.onrender.com) |
+
+### Production Environment Variables
+
+**Backend (set in Render Dashboard → Environment)**
+| Variable | Description |
+|---|---|
+| `MONGODB_URI` | MongoDB Atlas connection string |
+| `REDIS_URL` | Redis connection string (Upstash) |
+| `GEMINI_API_KEY` | Google AI Studio API key |
+| `GEMINI_MODEL` | `gemini-2.5-flash` |
+| `FRONTEND_URL` | `https://assignment-creator-phi.vercel.app` (for CORS) |
+| `NODE_OPTIONS` | `--max-old-space-size=460` (prevents OOM on free tier) |
+
+**Frontend (set in Vercel Dashboard → Settings → Environment Variables)**
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_API_URL` | `https://assignment-creator-s96e.onrender.com` |
+| `NEXT_PUBLIC_WS_URL` | `wss://assignment-creator-s96e.onrender.com` |

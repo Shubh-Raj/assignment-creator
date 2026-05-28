@@ -37,7 +37,7 @@ export default function HomePage() {
               Welcome back to your dashboard
             </p>
             <h1 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: '32px', color: '#ffffff', margin: '0 0 12px' }}>
-              John Doe 👋
+              Shubh 👋
             </h1>
             <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px', color: '#71717a', margin: 0 }}>
               Delhi Public School, Bokaro Steel City

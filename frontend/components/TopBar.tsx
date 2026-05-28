@@ -112,7 +112,7 @@ export default function TopBar({ title = 'Assignment', showBack = false, onBack 
             </svg>
           </div>
           <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500, fontSize: '13px', color: '#374151' }}>
-            John Doe
+            Shubh
           </span>
           <svg width="13" height="13" fill="none" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
             <path d="m6 9 6 6 6-6"/>
