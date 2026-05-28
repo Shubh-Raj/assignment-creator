@@ -10,7 +10,7 @@ export interface WsMessage {
 
 export function getSocket(): WebSocket {
   if (!socket || socket.readyState === WebSocket.CLOSED) {
-    const url = process.env.NEXT_PUBLIC_WS_URL || 'ws://localhost:4000';
+    const url = (process.env.NEXT_PUBLIC_WS_URL || 'ws://localhost:4000').replace(/\/$/, '');
     socket = new WebSocket(url);
 
     socket.onmessage = (event) => {
